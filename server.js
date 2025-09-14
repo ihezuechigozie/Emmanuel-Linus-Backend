@@ -21,6 +21,10 @@ if (missing.length) {
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
+
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
