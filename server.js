@@ -18,10 +18,14 @@ if (missing.length) {
   process.exit(1);
 }
 
-app.use(cors());
+app.use(cors({
+  origin: "*",               
+  methods: ["GET", "POST"], 
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
+app.get("/mail", (req, res) => {
   res.send("Backend is running");
 });
 
